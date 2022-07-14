@@ -1,12 +1,21 @@
+using MediatR;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using NerdStore.Catalogo.Application.AutoMapper;
+using NerdStore.Catalogo.Data;
 using NerdStore.WebApp.MVC.Data;
+using NerdStore.WebApp.MVC.Setup;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseSqlServer(connectionString));
+builder.Services.AddDatabaseDeveloperPageExceptionFilter();
+
+builder.Services.AddDbContext<CatalogoContext>(options =>
     options.UseSqlServer(connectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
@@ -14,6 +23,13 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
 
+//Passar quais são os tipos das classes com os profiles invés do Program porque não está no mesmo projeto
+builder.Services.AddAutoMapper(typeof(DomainToViewModelMappingProfile), typeof(ViewModelToDomainMappingProfile));
+
+builder.Services.AddMediatR(typeof(Program));
+
+builder.Services.RegisterServices();
+   
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
