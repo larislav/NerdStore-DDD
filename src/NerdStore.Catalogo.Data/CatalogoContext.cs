@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NerdStore.Catalogo.Data
+namespace NerdStore.Catalogo.Infrastructure
 {
     public class CatalogoContext : DbContext, IUnitOfWork
     {

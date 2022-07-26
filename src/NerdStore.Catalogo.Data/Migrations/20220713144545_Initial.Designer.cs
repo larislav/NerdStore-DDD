@@ -5,11 +5,11 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using NerdStore.Catalogo.Data;
+using NerdStore.Catalogo.Infrastructure;
 
 #nullable disable
 
-namespace NerdStore.Catalogo.Data.Migrations
+namespace NerdStore.Catalogo.Infrastructure.Migrations
 {
     [DbContext(typeof(CatalogoContext))]
     [Migration("20220713144545_Initial")]

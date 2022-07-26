@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NerdStore.Catalogo.Data.Repository
+namespace NerdStore.Catalogo.Infrastructure.Repository
 {
     public class ProdutoRepository : IProdutoRepository
     {

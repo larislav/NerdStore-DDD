@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NerdStore.Catalogo.Data.Mappings
+namespace NerdStore.Catalogo.Infrastructure.Mappings
 {
     public class ProdutoMapping : IEntityTypeConfiguration<Produto>
     {
