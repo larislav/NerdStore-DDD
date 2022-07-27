@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NerdStore.Vendas.Infrastructure
+namespace NerdStore.Vendas.Domain
 {
     public class Pedido : Entity, IAggregateRoot
     {
