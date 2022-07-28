@@ -11,9 +11,9 @@ namespace NerdStore.Vendas.Data.Repository
 {
     public class PedidoRepository : IPedidoRepository
     {
-        private readonly VendasContext _context;
+        private readonly VendasDbContext _context;
 
-        public PedidoRepository(VendasContext context)
+        public PedidoRepository(VendasDbContext context)
         {
             _context = context;
         }

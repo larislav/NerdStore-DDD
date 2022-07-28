@@ -1,6 +1,7 @@
 ﻿using NerdStore.Core.Messages;
+using NerdStore.Core.Messages.CommonMessages.Notifications;
 
-namespace NerdStore.Core.Bus
+namespace NerdStore.Core.Communication.Mediator
 {
     // O mediator pode ser uma interface para o Bus, mas não é um Bus
     // O mediator é baseado em request e notificação.
@@ -12,5 +13,7 @@ namespace NerdStore.Core.Bus
         Task PublicarEvento<T>(T evento) where T : Event;
 
         Task<bool> EnviarComando<T>(T comando) where T : Command;
+
+        Task PublicarNotificacao<T>(T notificacao) where T : DomainNotification;
     }
 }
