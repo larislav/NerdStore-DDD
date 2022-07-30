@@ -11,6 +11,7 @@ using NerdStore.Vendas.Infrastructure;
 using NerdStore.Core.Messages.CommonMessages.Notifications;
 using NerdStore.Core.Communication.Mediator;
 using NerdStore.Vendas.Application.Events;
+using NerdStore.Vendas.Application.Queries;
 
 namespace NerdStore.WebApp.MVC.Setup
 {
@@ -35,6 +36,7 @@ namespace NerdStore.WebApp.MVC.Setup
             // Vendas
             services.AddScoped<IRequestHandler<AdicionarItemPedidoCommand, bool>, PedidoCommandHandler>();
             services.AddScoped<IPedidoRepository, PedidoRepository>();
+            services.AddScoped<IPedidoQueries, PedidoQueries>();
             services.AddScoped<VendasDbContext>();
 
             services.AddScoped<INotificationHandler<PedidoRascunhoIniciadoEvent>, PedidoEventHandler>();

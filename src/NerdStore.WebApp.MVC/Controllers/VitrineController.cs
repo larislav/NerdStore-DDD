@@ -11,8 +11,10 @@ namespace NerdStore.WebApp.MVC.Controllers
             _produtoAppService = produtoAppService;
         }
 
-        [HttpGet("vitrine")]
+
+        [HttpGet]
         [Route("")]
+        [Route("Vitrine")]
         public async Task<IActionResult> Index()
         {
             var produtos = await _produtoAppService.ObterTodos();

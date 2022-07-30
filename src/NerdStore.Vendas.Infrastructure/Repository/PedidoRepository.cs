@@ -32,19 +32,27 @@ namespace NerdStore.Vendas.Data.Repository
 
         public async Task<Pedido> ObterPedidoRascunhoPorClienteId(Guid clienteId)
         {
-            var pedido = await _context.Pedidos.FirstOrDefaultAsync(p => p.ClienteId == clienteId && p.PedidoStatus == PedidoStatus.Rascunho);
-            if (pedido == null) return null;
-
-            await _context.Entry(pedido)
-                .Collection(i => i.PedidoItems).LoadAsync();
-
-            if (pedido.VoucherId != null)
+            try
             {
-                await _context.Entry(pedido)
-                    .Reference(i => i.Voucher).LoadAsync();
-            }
+                var pedido = await _context.Pedidos.FirstOrDefaultAsync(p => p.ClienteId == clienteId && p.PedidoStatus == PedidoStatus.Rascunho);
+                if (pedido == null) return null;
 
-            return pedido;
+                await _context.Entry(pedido)
+                    .Collection(i => i.PedidoItems).LoadAsync();
+
+                if (pedido.VoucherId != null)
+                {
+                    await _context.Entry(pedido)
+                        .Reference(i => i.Voucher).LoadAsync();
+                }
+
+                return pedido;
+            }
+            catch (Exception e)
+            {
+
+                throw;
+            }
         }
 
         public void Adicionar(Pedido pedido)
