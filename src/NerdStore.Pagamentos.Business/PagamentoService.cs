@@ -10,11 +10,11 @@ namespace NerdStore.Pagamentos.Business
     {
         private readonly IPagamentoCartaoCreditoFacade _pagamentoCartaoCreditoFacade;
         private readonly IPagamentoRepository _pagamentoRepository;
-        private readonly IMediatorHandler _mediatorHandler;
+        private readonly IMediatrHandler _mediatorHandler;
 
         public PagamentoService(IPagamentoCartaoCreditoFacade pagamentoCartaoCreditoFacade,
                                 IPagamentoRepository pagamentoRepository, 
-                                IMediatorHandler mediatorHandler)
+                                IMediatrHandler mediatorHandler)
         {
             _pagamentoCartaoCreditoFacade = pagamentoCartaoCreditoFacade;
             _pagamentoRepository = pagamentoRepository;
