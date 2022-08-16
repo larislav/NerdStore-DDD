@@ -21,6 +21,7 @@ namespace NerdStore.Vendas.Application.Commands
         public IniciarPedidoCommand(Guid pedidoId, Guid clienteId, decimal total, string nomeCartao,
             string numeroCartao, string expiracaoCartao, string cvvCartao)
         {
+            AggregateId = pedidoId;
             PedidoId = pedidoId;
             ClienteId = clienteId;
             Total = total;

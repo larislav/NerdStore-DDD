@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 namespace NerdStore.Catalogo.Domain
 {
     //Serviço Cross Aggregate: trabalha com 2 ou mais entidades,
-    //ou quando sua regrea de negócio não cabe nem numa camada de aplicação,
+    //ou quando sua regra de negócio não cabe nem numa camada de aplicação,
     //nem numa entidade
     public class EstoqueService : IEstoqueService
     {
